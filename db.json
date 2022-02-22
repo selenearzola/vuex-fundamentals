@@ -31,24 +31,14 @@
       "organizer": "Carey Wales"
     },
     {
-      "id": "f2834b47-ba34-4dfa-bf88-cd296adedea3",
-      "category": "food",
-      "title": "43242",
-      "description": "43242",
-      "location": "432432",
-      "date": "42342",
-      "time": "43242",
-      "organizer": "Victorine Adam"
-    },
-    {
-      "id": "ccfa35fd-e061-44d9-aed1-52c8c95c4698",
-      "category": "education",
-      "title": "534534",
-      "description": "5344534",
-      "location": "54353",
-      "date": "53453",
-      "time": "54353",
-      "organizer": "Victorine Adam"
+      "id": "4ba45c26-f55b-4773-b48a-9076bbf3a93b",
+      "category": "community",
+      "title": "Film Festival",
+      "description": "let's fun",
+      "location": "Daytona Park",
+      "date": "March 22, 2022",
+      "time": "16:00",
+      "organizer": "Selene Arzola"
     }
   ]
 }
