@@ -34,6 +34,7 @@
 <script>
 	import { v4 as uuidv4 } from 'uuid'
 	import Datepicker from 'vue3-datepicker'
+	import { mapState, mapActions } from 'vuex'
 	export default {
 		components: { Datepicker },
 		data() {
@@ -73,14 +74,20 @@
 				}
 			}
 		},
+		computed: {
+			...mapState(['user'])
+		},
 		methods: {
+			...mapActions(['createEvent']),
 			onSubmit() {
+
 				this.event.id = uuidv4()
-				this.event.organizer = this.$store.state.user
+				this.event.organizer = this.user
+
 				const d = this.event.date
 				this.event.date = `${this.months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
-				this.$store
-					.dispatch('createEvent', this.event)
+
+				this.createEvent(this.event)
 					.then(() => {
 						this.$router.push({
 							name: 'EventDetails',
