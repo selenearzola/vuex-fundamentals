@@ -7,20 +7,14 @@
 				<option v-for="option in categories" :value="option" :key="option"
 					:selected="option === event.category">{{ option }}</option>
 			</select>
-
 			<h3>Name & describe your event</h3>
-
 			<label>Title</label>
 			<input v-model="event.title" type="text" placeholder="Title">
-
 			<label>Description</label>
 			<input v-model="event.description" type="text" placeholder="Description" />
-
 			<h3>Where is your event?</h3>
-
 			<label>Location</label>
 			<input v-model="event.location" type="text" placeholder="Location" />
-
 			<h3>When is your event?</h3>
 			<label>Date</label>
 			<datepicker v-model="event.date" :inputFormat="'LLLL d yyyy'">
@@ -78,15 +72,12 @@
 			...mapState(['user'])
 		},
 		methods: {
-			...mapActions(['createEvent']),
+			...mapActions('event', ['createEvent']),
 			onSubmit() {
-
 				this.event.id = uuidv4()
-				this.event.organizer = this.user
-
+				this.event.organizer = this.user.userInfo.name
 				const d = this.event.date
 				this.event.date = `${this.months[d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`
-
 				this.createEvent(this.event)
 					.then(() => {
 						this.$router.push({

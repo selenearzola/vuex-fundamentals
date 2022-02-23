@@ -1,8 +1,7 @@
 <template>
-	<h1>Events for Good</h1>
-	<h1>Events for {{ user }}</h1>
+	<h1>Events for {{ user.userInfo.name }}</h1>
 	<div class="events">
-		<EventCard v-for="event in events" :key="event.id" :event="event" />
+		<EventCard v-for="event in event.events" :key="event.id" :event="event" />
 	</div>
 </template>
 <script>
@@ -23,10 +22,10 @@
 				})
 		},
 		computed: {
-			...mapState(['events', 'user'])
+			...mapState(['user', 'event'])
 		},
 		methods: {
-			...mapActions(['fetchEvents'])
+			...mapActions('event', ['fetchEvents'])
 		}
 	}
 </script>
